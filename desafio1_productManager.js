@@ -43,4 +43,6 @@ manager.addProducts("Bombi Heavy Metal", "Bombi tiro alto combinada en red y cue
 manager.addProducts("Corpi Heavy Metal", "Corpi tipo top combinado en red y cuero ecológico ", 2500, "No image", 2, 20)
 
 console.log(manager.products);
-console.log(manager.getProductbyId(5))
+console.log("________________________");
+console.log(manager.getProductbyId(2))
+console.log(manager.getProductbyId(5));
