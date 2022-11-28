@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-backend-comision32210",
+  "version": "1.0.0",
+  "description": "curso backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbastieri/bbastieri_backend.git"
+  },
+  "author": "Bianca Bastieri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbastieri/bbastieri_backend/issues"
+  },
+  "homepage": "https://github.com/bbastieri/bbastieri_backend#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
