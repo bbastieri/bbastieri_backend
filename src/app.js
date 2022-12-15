@@ -4,8 +4,12 @@ const productsFile = "./products.json"
 const productList = fs.readFileSync (productsFile, 'utf-8')
 const productsParse = JSON.parse(productList)
 
-
 const app = express()
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.get('/', (req, res) => res.send('OK'))
 
 app.get('/products', (req, res) =>{
     const limit = req.query.limit
@@ -24,6 +28,8 @@ app.get('/products/:pid', (req,res) =>{
     else res.send(productByID)
 
 })
+
+
 
 
 app.listen(8080, () => console.log('Server is running...'))
