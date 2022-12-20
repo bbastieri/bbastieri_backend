@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-class FileManager {
+class ProductManager {
 
     constructor (path) {
         this.path = path
@@ -46,22 +46,8 @@ class FileManager {
         return objByID || console.log(`Error: el ID "${id}" no existe`);
     }
 
-    update = async (id, obj) => {
-        product.id = id
-        const list = await this.read()
 
-        for (let i=0; i < list; i++) {
-            if(list[i].id == id){
-                list[i] = obj
-                break
-            }    
-        }
-
-        await this.write(list)
-
-    }
-
-    updateByID = async (id, obj) =>{
+    update = async (id, obj) =>{
         obj.id = id
         const list = await this.read()
 
@@ -89,4 +75,4 @@ class FileManager {
 
 }
 
-export default FileManager;
+export default ProductManager;
