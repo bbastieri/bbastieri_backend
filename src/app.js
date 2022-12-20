@@ -1,34 +1,14 @@
 import express from 'express';
-import fs from 'fs';
-
-const productsFile = "./products.json"
-const productList = fs.readFileSync (productsFile, 'utf-8')
-const productsParse = JSON.parse(productList)
+import productRouter from './routers/productRouter'
 
 const app = express()
-
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.get('/', (req, res) => res.send('OK'))
+app.use('/static', express.static('public'))
 
-app.get('/products', (req, res) =>{
-    const limit = req.query.limit
-
-    if(limit){ res.send(productsParse.slice(0,limit))}else{
-        res.send(productsParse)
-    }
-}) 
-
-app.get('/products/:pid', (req,res) =>{
-    const productID = req.params.pid
-    
-    const productByID = productsParse.find(product => product.id == productID)
-
-    if(!productByID) res.send(`<h2>Product not found.</h2>`)
-    else res.send(productByID)
-
-})
+app.use('/', (req, res) => res.send('HOME'))
+app.use('/api/products', productRouter)
 
 
 app.listen(8080, () => console.log('Server is running...'))
