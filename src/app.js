@@ -1,5 +1,6 @@
-const express = require('express')
-const fs = require('fs')
+import express from 'express';
+import fs from 'fs';
+
 const productsFile = "./products.json"
 const productList = fs.readFileSync (productsFile, 'utf-8')
 const productsParse = JSON.parse(productList)
@@ -28,8 +29,6 @@ app.get('/products/:pid', (req,res) =>{
     else res.send(productByID)
 
 })
-
-
 
 
 app.listen(8080, () => console.log('Server is running...'))
